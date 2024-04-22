@@ -8,7 +8,7 @@ router.get('/', async(req, res) => {
         const page = req.query.page || 1;
         const limit = 20; 
         const offset = (page - 1) * limit; 
-        console.log(process.env.API_KEY);
+        
         const apiUrl = `https://comicvine.gamespot.com/api/characters?api_key=${apiKey}&format=json&limit=${limit}&offset=${offset}`;
         const response = await fetch(apiUrl);
     
@@ -28,6 +28,7 @@ router.get('/', async(req, res) => {
   router.get('/character/:id', async(req, res) => {
 
     try {
+      console.log(apiKey)
         const apiUrl = `https://comicvine.gamespot.com/api/character/4005-${req.params.id}/?api_key=${apiKey}&format=json`;
         const response = await fetch(apiUrl);
     

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 require('dotenv').config();
-const key2 = process.env.API_KEY
+const apiKey = process.env.API_KEY
 
 
 router.get('/', async(req, res) => {
@@ -10,7 +10,7 @@ router.get('/', async(req, res) => {
         const limit = 20; 
         const offset = (page - 1) * limit; 
         
-        const apiUrl = `https://comicvine.gamespot.com/api/issues?api_key=${key2}&format=json&limit=${limit}&offset=${offset}`;
+        const apiUrl = `https://comicvine.gamespot.com/api/issues?api_key=${apiKey}&format=json&limit=${limit}&offset=${offset}`;
         const response = await fetch(apiUrl);
     
         if (!response.ok) {

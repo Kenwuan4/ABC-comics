@@ -9,7 +9,7 @@ router.get('/', async(req, res) => {
         const page = req.query.page || 1;
         const limit = 20; 
         const offset = (page - 1) * limit; 
-        console.log(process.env.API_KEY);
+        
         const apiUrl = `https://comicvine.gamespot.com/api/issues?api_key=${apiKey}&format=json&limit=${limit}&offset=${offset}`;
         const response = await fetch(apiUrl);
     
